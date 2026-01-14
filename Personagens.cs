@@ -2,39 +2,26 @@ using System;
 
 namespace jogo
 {
-    class Personagens
+    class Characters
     {
-        public string Nome { get; private set; }
+        private string Name { get; set; }
 
-        public int Vida {get; private set; }
+        private int Health {get; set; }
 
-        public int Dano {get; private set; }
+        private int Strength {get; set; }
 
-         public Personagens(string nome, int vida, int dano)
+         public Characters(string name, int health, int strength)
         {
-            this.Nome = nome;
-            this.Vida = vida;
-            this.Dano = dano;
+            this.Name = name;
+            this.Health = health;
+            this.Strength = strength;
         }
         
-        Atacar()
-        {
-
-        }
-
-        ReceberDano(int dano)
-        {
-            Vida -= dano;
-        }
     }
 
-    class Jogador : Personagens
+    class Player(string name, int health, int strength, int defense, int luck) : Characters( name, health , strength)
     {
-        int sorte = 0; 
-
-        public Jogador(string nome)
-            : base(nome, 100, 15)
-        {
-        }
+        private int Defense { get; set; } = defense;
+        private int Luck { get; set; } = luck;
     }
 }

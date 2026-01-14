@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Security.Cryptography.X509Certificates;
 
 namespace jogo
 {
@@ -6,38 +7,75 @@ namespace jogo
     {
         static void Main(string[] args)
         {
-            Personagens loboCinzento = new Personagens("Lobo Cinzento", 3, 3);
 
-            Personagens loboBranco = new Personagens("Lobo Branco", 3, 3);
-
-            Personagens goblin = new Personagens("Goblin", 4, 5);
-
-            Personagens orcVesgo = new Personagens("Orc Vesgo", 5, 5);
-
-            Personagens orcBarbudo = new Personagens("Goblin", 5, 5);
-
-            Personagens zumbiManco = new Personagens("Zumbi Manco", 7, 6);
-
-            Personagens zumbiBalofo = new Personagens("Zumbi Balofo", 7, 6);
-
-            Personagens troll = new Personagens("Troll", 7, 8);
-
-            Personagens ogro = new Personagens("Ogro", 9, 8);
-
-            Personagens ogroFurioso = new Personagens("Ogro Furioso", 9, 10);
-
-            Personagens necromanteMaligno = new Personagens("Necromante Maligno", 12, 12);
-
-            string nome;
+            Characters maneba = new("Maneba", 250, 14);
             
-            Console.Write(@"Bem-vindo(a) a Masmorra!
-            Digite seu nome para proseguirmos:");
+            Characters jaggedjaw = new("Jaggedjaw", 350, 30);
 
-            nome = Console.ReadLine()!;
-            Jogador jogador = new Jogador(nome);
+            Characters guard = new("Guard", 325, 40);
 
-            Console.WriteLine("Jogador criado com sucesso! Pressione uma tecla para prosseguir...");
-            Console.ReadKey();
+            Characters eliteGuard = new("Elite guard", 575, 37);
+
+            Characters cavegnome = new("Cavegnome", 100, 10);
+
+            Characters priest = new("Priest", 175, 28);
+
+            Characters lizardman = new("Lizardman", 425, 30);
+
+            Characters nightLurch = new("Night lurch", 420, 20);
+
+            Characters cavedweller = new("Cavedweller", 350, 25);
+
+            Characters yellowMage = new("Yellow mage", 420, 45);
+
+            Characters minerSpectre = new("Miner Spectre", 450, 15);
+
+            int option = 0;
+            bool validOption = false;
+
+            do
+            {
+                Console.Write(@"Choose your character:
+                1. Enki Ankarian. The priest of destruction.
+                2. D'arce Cataliss. The trusted knight of the propheticed one.
+                3. Ragnvaldr. The outlander.
+                4. Cahara. The mercenary. 
+                ");
+
+                validOption = int.TryParse(Console.ReadLine(), out option);
+
+                if(!validOption || option < 1 || option > 4)
+                {
+                    Console.WriteLine("Choose a valid option: \n");
+                }
+            }
+            while (!validOption || option < 1 || option > 4);
+
+            switch(option)
+            {
+                case 1:
+                Player enki = new("Enki", 100, 30, 16, 32);
+                StartGame();
+                break;
+                case 2:
+                Player darce = new("D'arce", 100, 30, 16, 32);
+                StartGame();
+                break;
+                case 3:
+                Player ragnvaldr = new("Ragnvaldr", 100, 40, 16, 32);
+                StartGame();
+                break;
+                case 4:
+                Player cahara = new("Cahara", 100, 30, 16, 32);
+                StartGame();
+                break;
+            } 
+           
+        }
+
+        public static void StartGame()
+        {
+            Console.WriteLine("Welcome to Fear & Hunger. A place where hope rots faster than flesh. Every step is a gamble, every choice a wound. Survive, or be forgotten in the dark.");    
         }
     }
 }
