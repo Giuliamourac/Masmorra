@@ -4,17 +4,22 @@ namespace jogo
 {
     class Characters
     {
-        private string Name { get; set; }
+        private string name { get; set; }
 
-        private int Health {get; set; }
+        private int health {get; set; }
 
-        private int Strength {get; set; }
+        private int strength {get; set; }
+
+        public string Name => name;
+        public int Health => health;
+        public int Strength => strength;
+
 
          public Characters(string name, int health, int strength)
         {
-            this.Name = name;
-            this.Health = health;
-            this.Strength = strength;
+            this.name = name;
+            this.health = health;
+            this.strength = strength;
         }
         
     }
